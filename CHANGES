@@ -1,6 +1,12 @@
 =head1 CHANGES (Apache::VMonitor)
 
-=head1 ver 0.8 - ???
+=head1 ver 0.9 - 
+
+*
+
+=head1 ver 0.8 - Tue Mar 11 14:48:10 EST 2003
+
+* prevent cross-site scripting, now HTML escaping the request field
 
 * mention in the docs that ExtendedStatus On is not coming for free.
 

@@ -1,6 +1,6 @@
 package Apache::VMonitor;
 
-$Apache::VMonitor::VERSION = '0.8';
+$Apache::VMonitor::VERSION = '0.9';
 
 use strict;
 
@@ -321,7 +321,7 @@ sub print_top{
                  vsize      => $vsize,
                  rss        => $rss,
                  client     => $process->client,
-                 request    => $process->request,
+                 request    => Apache::Util::escape_html($process->request),
                 };
         }
     } # end of for (my $i=0...
@@ -724,7 +724,8 @@ sub print_single{
       printf "$title_format %s\n",
         "Client IP or DNS",$process->client;
       printf "$title_format %s\n",
-        "Request (first 64 chars)",$process->request;
+        "Request (first 64 chars)",
+            Apache::Util::escape_html($process->request);
 
     } # end of unless ($i == -1)
 
