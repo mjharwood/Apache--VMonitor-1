@@ -1,5 +1,9 @@
 =head1 CHANGES (Apache::VMonitor)
 
+=head1 ver 0.8 - ???
+
+* mention in the docs that ExtendedStatus On is not coming for free.
+
 =head1 ver 0.7 - Fri Mar 15 00:53:45 SGT 2002
 
 * fix a devide by zero error (when there is no swap used). Thanks to Bill

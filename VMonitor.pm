@@ -1,6 +1,6 @@
 package Apache::VMonitor;
 
-$Apache::VMonitor::VERSION = '0.7';
+$Apache::VMonitor::VERSION = '0.8';
 
 use strict;
 
@@ -1528,6 +1528,10 @@ also have to enable the extended status for mod_status, for this
 module to work properly. In I<httpd.conf> add:
 
   ExtendedStatus On
+
+Notice that turning the C<ExtendedStatus> mode I<On> is not
+recommended for high-performance production sites, as it adds an
+overhead to the request response times.
 
 You also need B<Time::HiRes> and B<GTop> to be installed.
 
