@@ -1,6 +1,6 @@
 package Apache::VMonitor;
 
-$Apache::VMonitor::VERSION = '0.6';
+$Apache::VMonitor::VERSION = '0.7';
 
 use strict;
 
@@ -153,7 +153,7 @@ sub print_top{
     my $cpu   = $gtop->cpu;
     my $total = $cpu->total;
     printf "<B>CPU:   %2.1f%% user, %2.1f%% nice, %2.1f%% sys, %2.1f%% idle</B>\n",
-        map {$cpu->$_() * 100 / $total} qw(user nice sys idle);
+        map {$total ? ($cpu->$_() * 100 / $total) : 0 } qw(user nice sys idle);
 
     #######################
     # total mem stats
@@ -175,7 +175,7 @@ sub print_top{
 
     my $swap_total = $swap->total;
     my $swap_used  = $swap->used;
-    my $swap_usage = $swap_used * 100 / $swap_total;
+    my $swap_usage = $swap_total ? ($swap_used * 100 / $swap_total) : 0;
 
     # choose format color according to swap occupation
     if (5000 < $swap_used and $swap_used < 10000) {
