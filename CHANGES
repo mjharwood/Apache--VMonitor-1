@@ -18,8 +18,8 @@
 
 * removed the presentation of the real memory used for other
   non-modperl processes since it didn't handle correctly threaded
-  processes like mysql. Currently I don't see how can get to this info
-  from libgtop. Suggestions are welcome.
+  processes like mysql. Currently I don't see how I can get to this
+  info from libgtop. Suggestions are welcome.
 
 * corrected a bug where user dynamic settings (like refresh rate) were
   affecting global variables, thus making it hard for two admins to
