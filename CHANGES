@@ -1,5 +1,38 @@
 =head1 CHANGES (Apache::VMonitor)
 
+=head1 ver 0.5 - Sat Dec 16 20:06:14 CET 2000
+
+* now mod_perl processes report can be sorted by any of the columns in
+  the report (new variable: SORT_BY)
+
+* Documented the required ExtendedStatus to be On in httpd.conf
+
+* Removed the ifconfig(1) emulation section which actually has never
+  properly worked, because of the broken underlying implementation in
+  libgtop C library.
+
+* On the front page added the count of served requests by child.
+
+* the count of mod_perl procs now starts from 1 (and not 0) (Bill
+  Marrs)
+
+* removed the presentation of the real memory used for other
+  non-modperl processes since it didn't handle correctly threaded
+  processes like mysql. Currently I don't see how can get to this info
+  from libgtop. Suggestions are welcome.
+
+* corrected a bug where user dynamic settings (like refresh rate) were
+  affecting global variables, thus making it hard for two admins to
+  monitor the same site. Now dynamic setting (triggered by clicks on
+  the interface) don't affect the preset values.
+
+* changed the number formats in the system section to always use b/K/M
+  if applicable (using Apache::Util::size_string)
+
+* correctly reporting the number of processes (some were counted even
+  when they were in the process of death)
+
+
 =head1 ver 0.4 - Sun Dec 12 12:06:39 IST 1999
 
 * Added a single process mode
