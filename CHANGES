@@ -1,5 +1,10 @@
 =head1 CHANGES (Apache::VMonitor)
 
+=head1 ver 0.6 - Mon Dec 18 15:43:26 CET 2000
+
+* patch for perl5.005_03 (Chip Turner)
+  s/$obj->method/$obj->method()/;
+
 =head1 ver 0.5 - Sat Dec 16 20:06:14 CET 2000
 
 * now mod_perl processes report can be sorted by any of the columns in

@@ -51,11 +51,13 @@ sub chk_version{
 WriteMakefile(
 	      NAME => __PACKAGE__,
 	      VERSION_FROM => 'VMonitor.pm',
-	      dist => {
-		       PREOP => 'pod2text VMonitor.pm > README',
-		       COMPRESS => 'gzip -9f',
-		       SUFFIX   => '.gz', 
-		       DIST_DEFAULT => 'tardist',
-		      },
+              dist => {
+                       PREOP        => 'pod2text VMonitor.pm > README', 
+                       COMPRESS     => 'gzip -9f',
+                       SUFFIX       => '.gz',
+                       ZIP          => 'zip',
+                       ZIPFLAGS     => '-r',
+                       DIST_DEFAULT => 'tardist',
+                      },
 	      PREREQ_PM => \%require,
 	     );
